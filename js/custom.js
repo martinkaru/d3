@@ -1,6 +1,9 @@
-/*globals d3 */
+/*globals d3, requirejs */
+'use strict';
 
 requirejs(['d3js'], function () {
+    'use strict';
+
     var width = 960,
         height = 500,
         radius = Math.min(width, height) / 2;
