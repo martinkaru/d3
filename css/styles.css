@@ -1,3 +1,56 @@
+/***
+ * D3.js example app site spec css rules
+ *
+ * @author: Martin Karu <martinkaru@gmail.com>
+ * @date: 03.12.2015
+ */
+
+div.content {
+    max-width: 90%;
+    margin: 50px auto;
+}
+
+section.dashboard {
+    width: 100%;
+    float: left;
+    display: block;
+}
+
+/**
+ * 1/3 elements:
+ * 3*32% + 2% + 2% = 100% width
+ */
+.element-one-third {
+    width: 32%;
+    height: 400px; /* TODO :: remove */
+    float: left;
+    margin: 0;
+    background: red;
+}
+
+.element-one-third:first-child {
+    margin-right: 2%;
+}
+
+.element-one-third:nth-child(3) {
+    margin-left: 2%;
+}
+
+div.donut {
+    width: 100%;
+    height: 300px;
+    background: cornflowerblue;
+}
+
+div.semantics {
+    width: 100%;
+    height: 100px;
+    background: lightgreen;
+}
+
+/**
+ * Graph css rules
+ */
 
 .arc text {
     font: 10px sans-serif;
