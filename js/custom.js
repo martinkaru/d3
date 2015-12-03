@@ -35,42 +35,57 @@ requirejs(['d3js'], function () {
                 return d.value;
             });
 
-        var svg = d3.select(elementName).append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        var svg = d3.select(elementName).append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
         d3.csv(dataLocation, normalize, function (error, data) {
             if (error) throw error;
 
-            var g = svg.selectAll(".arc")
+            var g = svg.selectAll('.arc')
                 .data(pie(data))
-                .enter().append("g")
-                .attr("class", "arc");
+                .enter().append('g')
+                .attr('class', 'arc');
 
-            g.append("path")
-                .attr("d", arc)
-                .style("fill", function (d) {
+            g.append('path')
+                .attr('d', arc)
+                .style('fill', function (d) {
                     return color(d.data.key);
                 })
                 .style('stroke-width', 0);
 
-            g.append("text")
-                .attr("transform", function (d) {
-                    return "translate(" + arc.centroid(d) + ")";
-                })
-                .attr("dy", ".35em")
-            //.text(function (d) {
-            //    return d.data.age;
-            //});
+            // fixme
+            //g.append('text')
+            //    .attr('text-anchor', 'middle')
+            //    .attr('class', 'big-number')
+            //    .text(function (d) {
+            //        var total = 0;
+            //        for(var i in d.data) {
+            //            if (parseInt(d.data[i], 10)) {
+            //                total += +parseInt(d.data[i], 10);
+            //            }
+            //        }
+            //
+            //        return total;
+            //    });
         });
     }
 
     attachDonut('div.donut01', 'data/donut0001.csv', d3.scale.ordinal()
-        .range(["#49d025", "#005d00"]));
+        .range([
+            '#005d00',
+            '#49d025'
+        ]));
     attachDonut('div.donut02', 'data/donut0002.csv', d3.scale.ordinal()
-        .range(["#03c4e2", "#00465c"]));
+        .range([
+            '#00465c',
+            '#03c4e2'
+        ]));
     attachDonut('div.donut03', 'data/donut0003.csv', d3.scale.ordinal()
-        .range(["#febf00", "#d34d0f"]));
+        .range([
+            '#d34d0f',
+            '#febf00'
+        ]));
 });
